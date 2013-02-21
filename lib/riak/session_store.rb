@@ -85,7 +85,7 @@ module Riak
       end
 
       robject = bucket.get_or_new(session_id)
-      robject.content_type = options[:content_type]
+      robject.content_type = @riak_options[:content_type]
       robject.meta['expire-after'] = (Time.now + options[:expire_after]).httpdate if options[:expire_after]
       robject.data = session
       robject.store
